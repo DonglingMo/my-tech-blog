@@ -38,7 +38,7 @@ collections:
     folder: docs/posts
     create: true
     slug: '{{fields.slug}}'
-    preview_path: 'posts/{{fields.slug}}'
+    preview_path: 'posts/{{slug}}'
     editor:
       preview: false
     fields:
