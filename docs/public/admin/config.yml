@@ -34,15 +34,22 @@ collections:
     label_singular: 文章
     folder: docs/posts
     create: true
-    slug: '{{slug}}'
-    preview_path: 'posts/{{slug}}'
+    slug: '{{fields.slug}}'
+    preview_path: 'posts/{{fields.slug}}'
     editor:
       preview: false
     fields:
-      - label: 标题
+      - label: 文章标题
         name: title
         widget: string
         hint: 文章标题，显示在列表和页面顶部
+
+      - label: URL Slug
+        name: slug
+        widget: string
+        required: true
+        hint: "只用英文小写字母、数字和连字符，如：mysql-transaction-basics（决定文章链接）"
+        pattern: ['^[a-z0-9][a-z0-9-]*[a-z0-9]$', '只允许英文小写字母、数字和连字符，且不能以连字符开头或结尾']
 
       - label: 发布日期
         name: date

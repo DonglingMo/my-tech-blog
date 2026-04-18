@@ -1,5 +1,6 @@
 ---
 title: 你好，博客世界 —— 开始用 VitePress 写作
+slug: hello-world
 date: 2026-04-18
 description: 这是我的第一篇博客，记录博客搭建过程和写作初衷。
 cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80

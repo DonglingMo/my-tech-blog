@@ -1,5 +1,6 @@
 ---
 title: 博客全功能演示：数学公式、流程图、代码高亮
+slug: markdown-features
 date: 2026-04-18
 tags:
   - Markdown

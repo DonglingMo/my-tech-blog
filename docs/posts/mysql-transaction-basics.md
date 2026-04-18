@@ -1,5 +1,6 @@
 ---
 title: MySQL事务基本概念
+slug: mysql-transaction-basics
 date: 2026-04-18
 description: MySQL事务基本概念
 cover: ''
