@@ -93,7 +93,7 @@ sequenceDiagram
 
 ### TypeScript 类型体操
 
-```typescript twoslash
+```typescript
 type DeepReadonly<T> = {
   readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K]
 }

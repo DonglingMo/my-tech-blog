@@ -1,8 +1,6 @@
 import { defineConfig, getThemeConfig } from '@sugarat/theme/node'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import mathjax3 from 'markdown-it-mathjax3'
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
-
 const blogTheme = getThemeConfig({
   author: 'Dongling Mo',
   comment: {
@@ -101,7 +99,6 @@ export default withMermaid(
       config(md) {
         md.use(mathjax3)
       },
-      codeTransformers: [transformerTwoslash()],
       image: {
         lazyLoading: true,
       },
