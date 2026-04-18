@@ -38,7 +38,7 @@ collections:
     folder: docs/posts
     create: true
     slug: '{{fields.slug}}'
-    preview_path: 'https://donglingmo.github.io/my-tech-blog/posts/{{slug}}'
+    preview_path: 'posts/{{slug}}'
     editor:
       preview: false
     fields:
