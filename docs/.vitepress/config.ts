@@ -5,10 +5,11 @@ const blogTheme = getThemeConfig({
   author: 'Dongling Mo',
   comment: {
     repo: 'DonglingMo/my-tech-blog',
-    repoId: 'R_kgDONxxxxxx',
+    repoId: 'R_kgDOSFz4yw',
     category: 'Announcements',
-    categoryId: 'DIC_kwDONxxxxxx',
-    inputPosition: 'top',
+    categoryId: 'DIC_kwDOSFz4y84C7IGY',
+    inputPosition: 'bottom',
+    lang: 'zh-CN',
   },
   RSS: {
     title: 'Dongling Blog',
