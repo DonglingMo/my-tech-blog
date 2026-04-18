@@ -1,14 +1,15 @@
 ---
 title: 你好，博客世界 —— 开始用 VitePress 写作
 date: 2026-04-18
+description: 这是我的第一篇博客，记录博客搭建过程和写作初衷。
+cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80
 tags:
   - VitePress
   - 博客搭建
   - 写作
 categories:
   - 随笔
-description: 这是我的第一篇博客，记录博客搭建过程和写作初衷。
-cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80
+sticky: null
 ---
 
 # 你好，博客世界
@@ -45,6 +46,6 @@ cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80
 
 欢迎通过 GitHub Discussions 留言交流，或者直接提 Issue。
 
----
+***
 
-*写于 2026 年 4 月，武汉。*
+_写于 2026 年 4 月，北京。_
