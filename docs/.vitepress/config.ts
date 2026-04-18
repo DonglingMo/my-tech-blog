@@ -6,16 +6,6 @@ export default defineConfig({
   description: '学习记录与技术博客',
   base: '/my-tech-blog/',
   themeConfig: {
-    nav: [
-      { text: '首页', link: '/' }
-    ],
-    sidebar: [
-      {
-        text: '学习笔记',
-        items: [
-          { text: '开始', link: '/' }
-        ]
-      }
-    ]
+    nav: [{ text: '首页', link: '/' }]
   }
 })
