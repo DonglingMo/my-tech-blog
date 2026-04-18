@@ -8,6 +8,13 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "sass-embedded": "^1.99.0",
     "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "@shikijs/vitepress-twoslash": "^4.0.2",
+    "@sugarat/theme": "^0.5.17",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }

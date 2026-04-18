@@ -1,0 +1,109 @@
+# Sveltia CMS 配置
+# 文档：https://github.com/sveltia/sveltia-cms
+#
+# 首次使用前，需要完成以下一次性配置：
+# 1. 在 GitHub 仓库 Settings → Discussions 中开启 Discussions 功能
+# 2. 在 https://github.com/settings/developers 注册 GitHub OAuth App
+#    - Homepage URL: https://donglingmo.github.io/my-tech-blog/
+#    - Authorization callback URL: https://YOUR_WORKER.workers.dev/callback
+# 3. 部署 Cloudflare Worker（免费）：https://github.com/sveltia/sveltia-cms-auth
+# 4. 将下方 base_url 替换为你的 Worker 地址
+
+backend:
+  name: github
+  repo: DonglingMo/my-tech-blog
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# 媒体文件上传路径（相对于 docs/ 目录）
+media_folder: docs/public/images/uploads
+public_folder: /images/uploads
+
+# 本地预览模式（npm run docs:dev 时可用）
+local_backend: false
+
+# 界面语言
+locale: zh_Hans
+
+# 内容集合定义
+collections:
+  # ── 博客文章 ──────────────────────────────────
+  - name: posts
+    label: 博客文章
+    label_singular: 文章
+    folder: docs/posts
+    create: true
+    slug: '{{slug}}'
+    preview_path: 'posts/{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        hint: 文章标题，显示在列表和页面顶部
+
+      - label: 发布日期
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DD'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        default: '{{now}}'
+
+      - label: 摘要
+        name: description
+        widget: text
+        required: false
+        hint: 显示在文章列表卡片上的简短描述
+
+      - label: 封面图片
+        name: cover
+        widget: image
+        required: false
+        hint: 文章封面图，建议尺寸 1200×630
+
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        hint: '多个标签用回车分隔，如：Vue, TypeScript'
+
+      - label: 分类
+        name: categories
+        widget: list
+        required: false
+
+      - label: 置顶权重
+        name: sticky
+        widget: number
+        required: false
+        default: 0
+        hint: 数字越大越靠前（0 表示不置顶）
+
+      - label: 是否发布
+        name: publish
+        widget: boolean
+        default: true
+
+      - label: 正文内容
+        name: body
+        widget: markdown
+        hint: 支持完整 Markdown 语法，包括数学公式（$$...$$）和 Mermaid 流程图（```mermaid）
+
+  # ── 关于页面 ──────────────────────────────────
+  - name: pages
+    label: 独立页面
+    label_singular: 页面
+    files:
+      - label: 关于我
+        name: about
+        file: docs/about.md
+        fields:
+          - label: 标题
+            name: title
+            widget: string
+          - label: 正文
+            name: body
+            widget: markdown

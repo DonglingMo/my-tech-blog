@@ -1,0 +1,70 @@
+/* ── 品牌色覆盖 ── */
+:root {
+  --vp-c-brand-1: #4f7eff;
+  --vp-c-brand-2: #3a65e8;
+  --vp-c-brand-3: #2a50d0;
+  --vp-c-brand-soft: rgba(79, 126, 255, 0.12);
+
+  /* 代码块字体 */
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ── 暗色模式下品牌色微调 ── */
+.dark {
+  --vp-c-brand-1: #6b96ff;
+  --vp-c-brand-2: #4f7eff;
+  --vp-c-brand-3: #3a65e8;
+  --vp-c-brand-soft: rgba(107, 150, 255, 0.14);
+}
+
+/* ── 首页英雄区签名文字 ── */
+.blog-hero .motto {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+/* ── 文章卡片悬停效果 ── */
+.blog-list-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.blog-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── 代码块圆角 ── */
+div[class*='language-'] {
+  border-radius: 10px !important;
+}
+
+/* ── 自定义引用块样式 ── */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+}
+
+/* ── 图片圆角 ── */
+.vp-doc img {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── MathJax 公式大小适配 ── */
+mjx-container {
+  overflow-x: auto;
+}
+
+/* ── Mermaid 图表居中 ── */
+.mermaid-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+/* ── 阅读进度条（@sugarat/theme 内置，颜色统一） ── */
+#nprogress .bar {
+  background: var(--vp-c-brand-1) !important;
+}
