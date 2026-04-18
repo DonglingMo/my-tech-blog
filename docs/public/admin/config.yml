@@ -16,6 +16,9 @@ backend:
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
+# 博客站点地址（用于生成「View on Live Site」预览链接）
+site_url: https://donglingmo.github.io/my-tech-blog
+
 # 媒体文件上传路径（相对于 docs/ 目录）
 media_folder: docs/public/images/uploads
 public_folder: /images/uploads
