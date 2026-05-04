@@ -45,7 +45,7 @@ DML 编译
 恢复管理器
 
 ```mermaid
-slowchart TD
+flowchart TD
     U1[初学者用户<br/>终端的、代用的、Web用户]
     APPDEV[应用程序员]
     U2[老练用户<br/>分析员]
@@ -110,5 +110,6 @@ slowchart TD
     DMLC --> DICT
     DMLC --> STAT
 ```
+
 用户 -> app ->  db
 用户 -> 客户端 -> app -> db
