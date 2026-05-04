@@ -46,28 +46,28 @@ DML 编译
 
 ```mermaid
 flowchart TD
-    U1[初学者用户<br/>终端的、代用的、Web用户]
-    APPDEV[应用程序员]
-    U2[老练用户<br/>分析员]
-    DBA[数据库管理员]
+    U1["初学者用户<br/>终端用户、Web用户"]
+    APPDEV["应用程序员"]
+    U2["老练用户<br/>分析员"]
+    DBA["数据库管理员"]
 
-    UI([应用界面])
-    APP([应用程序])
-    QUERY([查询工具])
-    ADMIN([管理工具])
+    UI["应用界面"]
+    APP["应用程序"]
+    QUERY["查询工具"]
+    ADMIN["管理工具"]
 
     U1 -->|使用| UI
     APPDEV -->|写| APP
     U2 -->|使用| QUERY
     DBA -->|使用| ADMIN
 
-    subgraph QP[查询处理器]
-        CODE[应用程序目标码]
-        COMP[编译器<br/>和链接器]
-        DML[DML查询]
-        DMLC[DML编译器<br/>和组织器]
-        DDL[DDL解释器]
-        ENGINE[查询执行引擎]
+    subgraph QP["查询处理器"]
+        CODE["应用程序目标码"]
+        COMP["编译器和链接器"]
+        DML["DML查询"]
+        DMLC["DML编译器和组织器"]
+        DDL["DDL解释器"]
+        ENGINE["查询执行引擎"]
 
         APP --> COMP
         COMP --> CODE
@@ -81,11 +81,11 @@ flowchart TD
         DMLC --> ENGINE
     end
 
-    subgraph SM[存储管理器]
-        BUF[缓冲区管理器]
-        FILE[文件管理器]
-        AUTH[授权和完整性<br/>管理器]
-        TX[事务管理器]
+    subgraph SM["存储管理器"]
+        BUF["缓冲区管理器"]
+        FILE["文件管理器"]
+        AUTH["授权和完整性管理器"]
+        TX["事务管理器"]
 
         ENGINE --> BUF
         ENGINE --> FILE
@@ -93,11 +93,11 @@ flowchart TD
         ENGINE --> TX
     end
 
-    subgraph DISK[磁盘存储]
-        DATA[数据]
-        IDX[索引]
-        DICT[数据字典]
-        STAT[统计数据]
+    subgraph DISK["磁盘存储"]
+        DATA["数据"]
+        IDX["索引"]
+        DICT["数据字典"]
+        STAT["统计数据"]
     end
 
     BUF --> DATA
