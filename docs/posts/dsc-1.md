@@ -154,6 +154,8 @@ select选择
 
 集合运算
 
+赋值运算
+
 更名运算
 
 等价查询
@@ -242,6 +244,16 @@ JOIN Class c ON s.class_id = c.class_id;
 SELECT *
 FROM Student s, Class c
 WHERE s.class_id = c.class_id;
+
+# T ← E 把表达式 E 的查询结果赋值给临时关系 T
+# AdultStudent ← σ age >= 18 (Student)
+WITH AdultStudent AS (
+    SELECT *
+    FROM Student
+    WHERE age >= 18
+)
+SELECT *
+FROM AdultStudent;
 ```
 
 | 关系代数 | 含义 | SQL 对应 |
