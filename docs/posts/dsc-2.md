@@ -125,4 +125,118 @@ having avg(salary) > 4200;
 -- 布尔条件统计用 SUM(CASE WHEN 条件 THEN 1 ELSE 0 END)；
 -- COUNT(CASE WHEN 条件 THEN 1 END) 也可以；
 -- COUNT(CASE WHEN 条件 THEN 1 ELSE 0 END) 是错的，会统计所有行。
+
+-- 嵌套子查询
+-- where谓词子句子查询
+SELECT name
+FROM student
+WHERE class_id = (
+    SELECT id
+    FROM class
+    WHERE class_name = '一班'
+);
+
+SELECT name
+FROM student
+WHERE class_id IN (
+    SELECT id
+    FROM class
+    WHERE grade = '高一'
+);
+
+-- from子句临时表
+SELECT t.class_id, t.avg_score
+FROM (
+    SELECT class_id, AVG(score) AS avg_score
+    FROM student
+    GROUP BY class_id
+) t
+WHERE t.avg_score > 80;
+```
+
+| 类型 | 返回结果 | 例子 |
+| --- | --- | --- |
+| 标量子查询 | 一行一列 | `SELECT AVG(score)` |
+| 列子查询 | 多行一列 | `SELECT class_id FROM student` |
+| 行子查询 | 一行多列 | `SELECT dept_id, salary` |
+| 表子查询 | 多行多列 | `SELECT dept_id, AVG(score) GROUP BY dept_id` |
+
+```sql
+-- 子查询null
+SELECT *
+FROM student s
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM some_table t
+    WHERE t.class_id = s.class_id
+);
+
+SELECT *
+FROM employee
+WHERE salary > ANY (
+    SELECT salary
+    FROM employee
+    WHERE dept_id = 10
+);
+
+SELECT *
+FROM employee
+WHERE salary > ALL (
+    SELECT salary
+    FROM employee
+    WHERE dept_id = 10
+);
+-- 一行多列
+SELECT *
+FROM employee
+WHERE (dept_id, salary) = (
+    SELECT dept_id, salary
+    FROM employee
+    WHERE id = 1
+);
+-- 多列多行
+SELECT t.dept_id, t.avg_salary
+FROM (
+    SELECT dept_id, AVG(salary) AS avg_salary
+    FROM employee
+    GROUP BY dept_id
+) t
+WHERE t.avg_salary > 8000;
+
+SELECT 
+    e.name,
+    e.salary,
+    (
+        SELECT AVG(e2.salary)
+        FROM employee e2
+        WHERE e2.dept_id = e.dept_id
+    ) AS dept_avg_salary
+FROM employee e;
+
+-- 子查询和JOIN
+SELECT name
+FROM student
+WHERE class_id IN (
+    SELECT id
+    FROM class
+    WHERE grade = '高一'
+);
+SELECT s.name
+FROM student s
+JOIN class c ON s.class_id = c.id
+WHERE c.grade = '高一';
+```
+
+| 写法 | 思维方式 |
+| --- | --- |
+| `IN` | 外层字段是否属于内层结果集合 |
+| `EXISTS` | 是否存在满足条件的记录 |
+| `NOT IN` | 不在某个集合中 |
+| `NOT EXISTS` | 不存在满足条件的记录 |
+
+**删除和更新**
+
+```sql
+delete from r where P
+update table set a = a * 10 where P
 ```
